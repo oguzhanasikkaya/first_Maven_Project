@@ -23,11 +23,7 @@ public class T3_GoogleSearch {
 
         //4 press enter using Keys.ENTER
 
-        googleSearchBox.sendKeys("apple" + Keys.ENTER);
-
-
-
-
+        googleSearchBox.sendKeys("oğuzhan aşıkkaya" + Keys.ENTER);
 
         //5 verify title
         // expected title should start with "apple" word
