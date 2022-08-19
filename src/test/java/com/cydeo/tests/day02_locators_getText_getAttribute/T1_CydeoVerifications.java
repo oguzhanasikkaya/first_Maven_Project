@@ -22,9 +22,9 @@ public class T1_CydeoVerifications {
         String actualURL = driver.getCurrentUrl();
 
         if (actualURL.contains(expectedURL)){
-            System.out.println("test passed");
+            System.out.println("URL verification test passed");
         }else {
-            System.out.println("test failed");
+            System.out.println("URL verification test failed");
         }
 
         //Verify title, expected Practice
@@ -32,9 +32,9 @@ public class T1_CydeoVerifications {
         String actualTitle = driver.getTitle() ;
 
         if (actualTitle.equals(expectedTitle)){
-            System.out.println("test passed");
+            System.out.println("Title verification test passed");
         }else {
-            System.out.println("test failed");
+            System.out.println("Title verification test failed");
         }
 
 
