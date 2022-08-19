@@ -15,9 +15,6 @@ public class T5_getText_getAttribute {
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
 
-
-
-
         //2  go to https://practice.cydeo.com/registration_form
 
         driver.get("https://practice.cydeo.com/registration_form");
@@ -36,7 +33,18 @@ public class T5_getText_getAttribute {
 
         //4 locate first name input box
 
-        //5 verify placeholder attribute's  value is as expected: firs name
+        WebElement firstNameInput = driver.findElement(By.name("firstname"));
+
+        //5 verify placeholder attribute's  value is as expected: first name
+        String expectedPlaceHolder = "first name";
+        String actualPlaceHolder = firstNameInput.getAttribute("placeholder");
+
+        if (expectedHeaderText.equals(actualHeaderText)){
+            System.out.println("verify place holder test passed");
+        }else {
+            System.out.println("verify place holder test failed");
+        }
+        driver.quit();
 
 
     }
