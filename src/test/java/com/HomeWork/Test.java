@@ -1,22 +1,21 @@
-package com.cydeo.tests;
+package com.HomeWork;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class P08_LocateElementByTagName {
+public class Test {
 
     public static void main(String[] args) {
 
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
+        driver.get("https://www.google.com");
         driver.manage().window().maximize();
-        driver.get("http://practice.cydeo.com/");
-        WebElement text = driver.findElement(By.tagName("h1"));
-        System.out.println(text.getText());
-        driver.quit();
+        driver.findElement(By.partialLinkText("Oturum")).click();
+        driver.findElement(By.id("identifierId")).sendKeys("oguzhanasikkaya1@gmail.com");
+
 
     }
 }
