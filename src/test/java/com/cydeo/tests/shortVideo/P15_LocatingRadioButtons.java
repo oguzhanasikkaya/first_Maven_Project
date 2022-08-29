@@ -5,6 +5,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import java.util.List;
+
 public class P15_LocatingRadioButtons {
     public static void main(String[] args) throws InterruptedException {
         WebDriver driver = WebDriverFactory.getDriver("Chrome");
@@ -40,6 +42,19 @@ public class P15_LocatingRadioButtons {
             System.out.println("disable");
         }
         Thread.sleep(2000);
+
+        System.out.println("---------------------------------------------");
+
+        List<WebElement> allColors = driver.findElements(By.name("color"));
+
+        System.out.println("allColors.size() = " + allColors.size());
+
+        for (WebElement eachColor : allColors) {
+            System.out.println("current radio button is "+ eachColor.getAttribute("id"));
+            System.out.println("Is it enabled: "+ eachColor.isEnabled());
+            System.out.println("Is it selected: "+ eachColor.isSelected());
+        }
+
 
         driver.quit();
 
