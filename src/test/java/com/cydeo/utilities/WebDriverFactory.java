@@ -10,9 +10,13 @@ package com.cydeo.utilities;
 
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+
+import java.util.List;
 
 public class WebDriverFactory {
 
@@ -29,5 +33,24 @@ public class WebDriverFactory {
         }
 
 
+    }
+
+    public static void clickAndVerifyRadioButton(WebDriver driver,String nameAttribute, String idValue){
+
+        List<WebElement> radioButtons = driver.findElements(By.name(nameAttribute));
+        //loop through the list of WebElement and select matching result hockey
+
+        for (WebElement each : radioButtons){
+
+            String eachID = each.getAttribute("id");
+
+            if (eachID.equals(idValue)){
+
+                each.click();
+                System.out.println(eachID+" is selected : "+ each.isSelected());
+                break;
+
+            }
+        }
     }
 }
