@@ -3,7 +3,9 @@ package com.cydeo.tests.day05_testNG_intro_dropdowns;
 import com.cydeo.utilities.WebDriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -22,11 +24,11 @@ public class T4_SimpleDropDowns {
     @AfterMethod
     public void tearDownMethod(){
         try {
-            Thread.sleep(3000);
+            Thread.sleep(15000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
-       // driver.quit();
+        driver.quit();
     }
 
 
@@ -39,12 +41,26 @@ public class T4_SimpleDropDowns {
 //        3. Verify “Simple dropdown” default selected value is correct
         Select simpleDropdown = new Select(driver.findElement(By.xpath("//select[@id='dropdown']")));
 
+        WebElement currentlySelectedOption = simpleDropdown.getFirstSelectedOption();
 
-
+        String actualSimpleDropdownText = currentlySelectedOption.getText();
+        String expectedSimpleDropdownText = "Please select an option";
 
 //        Expected: “Please select an option”
+        Assert.assertEquals(actualSimpleDropdownText,expectedSimpleDropdownText);
+
+
+
+
 //        4. Verify “State selection” default selected value is correct
+        Select stateDropDown = new Select(driver.findElement(By.xpath("//select[@id='state']")));
+
 //        Expected: “Select a State”
+
+        String expectedStateDropdownText = "Select a State";
+        String actualStateDropdownText = stateDropDown.getFirstSelectedOption().getText();
+
+        Assert.assertEquals(actualStateDropdownText,expectedStateDropdownText);
     }
 
 
