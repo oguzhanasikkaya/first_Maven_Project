@@ -17,6 +17,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class WebDriverFactory {
 
@@ -39,6 +40,7 @@ public class WebDriverFactory {
                 driver = null;
         }
         driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
         return driver;
     }
 
