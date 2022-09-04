@@ -1,4 +1,4 @@
-package com.cydeo.tests.shortVideo.TestNG;
+package com.cydeo.tests.shortVideo.tests;
 
 import com.cydeo.utilities.WebDriverFactory;
 import org.openqa.selenium.By;

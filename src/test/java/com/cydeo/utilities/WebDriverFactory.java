@@ -19,25 +19,27 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import java.util.List;
 
 public class WebDriverFactory {
-    WebDriver driver;
+
 
     public static WebDriver getDriver(String browserType){
 
-        if(browserType.equalsIgnoreCase("chrome")){
-            WebDriverManager.chromedriver().setup();
-            return new ChromeDriver();
+        WebDriver driver;
 
-        }else if (browserType.equalsIgnoreCase("firefox")){
-            WebDriverManager.firefoxdriver().setup();
-            return new FirefoxDriver();
-
-        }else {
-            System.out.println("Given browser type is does not exist/or is not currently supported");
-            return null;
+        switch (browserType.toLowerCase()){
+            case "chrome":
+                WebDriverManager.chromedriver().setup();
+                driver = new ChromeDriver();
+                break;
+            case "firefox":
+                WebDriverManager.firefoxdriver().setup();
+                driver = new FirefoxDriver();
+                break;
+            default:
+                System.out.println("Unknown Browser Type "+ browserType);
+                driver = null;
         }
-
-
-
+        driver.manage().window().maximize();
+        return driver;
     }
 
     public static void clickAndVerifyRadioButton(WebDriver driver,String nameAttribute, String idValue){
