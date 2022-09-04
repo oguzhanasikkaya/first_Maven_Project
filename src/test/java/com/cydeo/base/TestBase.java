@@ -20,7 +20,7 @@ public class TestBase {
     @AfterMethod
     public void teardown()throws InterruptedException{
         Thread.sleep(2000);
-        driver.quit();
+        //driver.quit();
     }
 
 }
