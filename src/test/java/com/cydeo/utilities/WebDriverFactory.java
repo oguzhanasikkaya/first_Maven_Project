@@ -54,11 +54,9 @@ public class WebDriverFactory {
             String eachID = each.getAttribute("id");
 
             if (eachID.equals(idValue)){
-
                 each.click();
                 System.out.println(eachID+" is selected : "+ each.isSelected());
                 break;
-
             }
         }
     }
