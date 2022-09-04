@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
@@ -23,13 +24,13 @@ public class T5_WindowPractice {
         // got to Website: http://practice.cydeo.com/javascript_alerts
         driver.get("https://practice.cydeo.com/windows");
     }
+    @Ignore
     @AfterMethod
-
     public void tearDown() throws InterruptedException {
         Thread.sleep(2000);
         driver.close();
     }
-
+    @Ignore
     @Test
     public void windowHandle() throws InterruptedException {
         //Storing the main page's window handlw as string is
@@ -42,9 +43,9 @@ public class T5_WindowPractice {
         // Click to: “Click Here” link
         WebElement newWindowButton = driver.findElement(By.linkText("Click Here"));
         newWindowButton.click();
+
         Thread.sleep(2000);
         String secondHandle = driver.getWindowHandle();
-
         /*driver.switchTo().window(mainHandle);
         newWindowButton.click();
         Thread.sleep(2000);
@@ -59,11 +60,9 @@ public class T5_WindowPractice {
         newWindowButton.click();
         Thread.sleep(2000);
         String forthHandle = driver.getWindowHandle();*/
-
-
         for (String each : driver.getWindowHandles()) {
             driver.switchTo().window(each);
-            System.out.println("current title while switching windows: "+ driver.getTitle());
+            System.out.println("Current title while switching windows: "+ driver.getTitle());
         }
 
         System.out.println("Click after the title: "+driver.getTitle());
@@ -74,12 +73,18 @@ public class T5_WindowPractice {
 
         //Assert: Title is “New Window”
         Assert.assertEquals(driver.getTitle(),"New Window");
+        Thread.sleep(2000);
 
+        driver.switchTo().window(secondHandle);
 
+        Thread.sleep(2000);
 
     }
 
+    @Test
+    public void test1(){
 
+    }
 
 
 

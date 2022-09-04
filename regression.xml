@@ -1,0 +1,22 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="regression suite">
+    <test name="Selenium test">
+        <classes>
+            <class name="com.cydeo.tests.day05_testNG_intro_dropdowns.TestNG_Selenium"></class>
+        </classes>  
+    </test>
+    <test name="TestNG intro">
+        <classes>
+            <class name="com.cydeo.tests.day05_testNG_intro_dropdowns.TestNG_Intro"></class>
+            <class name="com.cydeo.tests.day05_testNG_intro_dropdowns.T1_StaleElementRefEx"></class>
+        </classes>
+    </test>
+    
+    <test name="tests package">
+        <packages>
+            <package name="com.cydeo.tests.day01_selenium_intro"></package>
+        </packages>
+    </test>
+
+</suite>
