@@ -1,4 +1,4 @@
-package com.cydeo.tests.shortVideo;
+package com.cydeo.tests.shortVideo.P;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
