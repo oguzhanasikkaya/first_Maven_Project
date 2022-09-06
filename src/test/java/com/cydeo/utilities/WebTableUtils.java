@@ -7,7 +7,6 @@ import org.testng.Assert;
 public class WebTableUtils {
 
 
-
    /* public static String returnOrderDate(String customerName){
 
         String locator = "//td[.='"+customerName+"']/following-sibling::td[3]";
@@ -35,4 +34,15 @@ public class WebTableUtils {
         Assert.assertEquals(actualOrderDate,expectedOrderData);
 
     }
+
+
+
+
+
+
+
+
+
+
+
 }

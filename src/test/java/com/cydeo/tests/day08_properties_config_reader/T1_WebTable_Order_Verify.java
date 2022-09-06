@@ -48,4 +48,11 @@ public class T1_WebTable_Order_Verify {
         System.out.println("costumerOrderDate = " + costumerOrderDate);
 
     }
+
+
+    @Test
+    public void test3(){
+        Driver.getDriver().get("https://practice.cydeo.com/web-tables");
+        WebTableUtils.orderVerify("Ned Stark","05/12/2021");
+    }
 }
