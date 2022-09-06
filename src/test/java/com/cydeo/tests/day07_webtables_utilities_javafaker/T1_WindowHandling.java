@@ -1,11 +1,9 @@
 package com.cydeo.tests.day07_webtables_utilities_javafaker;
 
+import com.cydeo.utilities.BrowserUtils;
 import com.cydeo.utilities.Driver;
 import org.openqa.selenium.JavascriptExecutor;
-import org.testng.Assert;
 import org.testng.annotations.Test;
-
-import java.util.Set;
 
 public class T1_WindowHandling {
 
@@ -23,25 +21,10 @@ public class T1_WindowHandling {
         ((JavascriptExecutor) Driver.getDriver()).executeScript("window.open('https://google.com','_blank');");
 
         //4 Assert:Title contains "Etsy"
-        Set<String> allWindowHandles =Driver.getDriver().getWindowHandles();
 
-        for (String each : allWindowHandles) {
+        BrowserUtils.switchWindowAndVerify("etsy","Etsy");
 
-            Driver.getDriver().switchTo().window(each);
 
-            System.out.println("Current URL: "+ Driver.getDriver().getCurrentUrl());
-
-            if (Driver.getDriver().getCurrentUrl().contains("etsy")){
-                break;
-            }
-
-        }
-
-        //5 Assert: Title contains "etsy"
-        String actualTitle = Driver.getDriver().getTitle();
-        String expectedInTitle = "Etsy";
-
-        Assert.assertTrue(actualTitle.contains(expectedInTitle));
 
 
         Driver.getDriver().quit();

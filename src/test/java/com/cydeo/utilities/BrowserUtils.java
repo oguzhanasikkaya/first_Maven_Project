@@ -38,5 +38,12 @@ public class BrowserUtils {
         Assert.assertTrue(actualTitle.contains(expectedInTitle));
     }
 
+    /*
+    This method accepts a String "expectedTitle" and Asserts if it is true
+     */
+    public static void verifyTitle(String expectedTitle){
+        Assert.assertEquals(Driver.getDriver().getTitle(),expectedTitle);
+    }
+
 
 }
