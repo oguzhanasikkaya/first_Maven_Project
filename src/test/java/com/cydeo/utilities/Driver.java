@@ -14,13 +14,13 @@ public class Driver {
      */
     private Driver(){}
 
-    /*
+    /**
     We make WebDriver private, because we want to close access from outside the class.
     We make it static because we will use it in a static method.
      */
     private static WebDriver driver; // value is null by default
 
-    /*
+    /**
     create a re-usable utility method which will return same driver instance when we call it
      */
     public static WebDriver getDriver(){
@@ -68,7 +68,7 @@ public class Driver {
 
     }
 
-    /*
+    /**
     This method will make sure our driver value is always null after using quit() method
      */
     public static void closeDriver(){
