@@ -21,11 +21,7 @@ public class T1_WindowHandling {
         ((JavascriptExecutor) Driver.getDriver()).executeScript("window.open('https://google.com','_blank');");
 
         //4 Assert:Title contains "Etsy"
-
         BrowserUtils.switchWindowAndVerify("etsy","Etsy");
-
-
-
 
         Driver.getDriver().quit();
 
