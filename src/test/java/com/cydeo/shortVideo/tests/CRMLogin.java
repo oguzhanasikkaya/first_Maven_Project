@@ -1,4 +1,4 @@
-package com.cydeo.tests.shortVideo.tests;
+package com.cydeo.shortVideo.tests;
 
 import com.cydeo.utilities.ConfigurationReader;
 import com.cydeo.utilities.Driver;

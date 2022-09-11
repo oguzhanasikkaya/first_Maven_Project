@@ -1,4 +1,4 @@
-package com.cydeo.tests.shortVideo.tests;
+package com.cydeo.shortVideo.tests;
 
 import com.github.javafaker.Faker;
 import org.testng.annotations.Test;
