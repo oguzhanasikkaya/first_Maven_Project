@@ -6,9 +6,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
 
 public class P03_ActionClass  extends TestBase {
 
@@ -27,6 +29,27 @@ public class P03_ActionClass  extends TestBase {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
          assertEquals(bigCircle.getText(),"You did great!");
+    }
+
+    @Test
+    public void  hoverTest(){
+        driver.get("https://practice.cydeo.com/hovers");
+
+        WebElement firstImage = driver.findElement(By.xpath("(//img)[1]"));
+        WebElement img1Text = driver.findElement(By.xpath("//h5[text()='name: user1']"));
+
+        Actions actions = new Actions(driver);
+        actions.moveToElement(firstImage).perform();
+        assertTrue(img1Text.isDisplayed());
+
+
+        List<WebElement> images = driver.findElements(By.tagName("img"));
+
+
+        for (WebElement each : images) {
+            actions.moveToElement(each).pause(2000).perform();
+        }
+
     }
 
 
