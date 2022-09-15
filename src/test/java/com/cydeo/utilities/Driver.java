@@ -8,7 +8,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import java.util.concurrent.TimeUnit;
 
 public class Driver {
-    /*
+    /**
     Creating a private constructor, so we are closing
     access to the object of this class from outside the class
      */
@@ -26,13 +26,11 @@ public class Driver {
     public static WebDriver getDriver(){
 
         if ( driver == null || driver.toString().toLowerCase().contains("null") ) {
-
             /**
             we read our browserType from configuration.properties.
             This way, we can control which browser is opened from outside our code, from configuration.properties file
              */
             String browserType = ConfigurationReader.getProperty("browser");
-
 
             /**
             Depending on the browserType that will be return from configuration.properties file

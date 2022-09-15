@@ -13,7 +13,7 @@ public class TestBase {
 
     @BeforeMethod
     public  void  setup(){
-        driver = WebDriverFactory.getDriver("browser");
+        driver = WebDriverFactory.getDriver("chrome");
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().window().maximize();
