@@ -25,16 +25,16 @@ public class Driver {
      */
     public static WebDriver getDriver(){
 
-        if ( driver == null ) {
+        if ( driver == null || driver.toString().toLowerCase().contains("null") ) {
 
-            /*
+            /**
             we read our browserType from configuration.properties.
             This way, we can control which browser is opened from outside our code, from configuration.properties file
              */
             String browserType = ConfigurationReader.getProperty("browser");
 
 
-            /*
+            /**
             Depending on the browserType that will be return from configuration.properties file
             switch statement will determine the case, and open the matching browser
              */
@@ -42,6 +42,7 @@ public class Driver {
             switch (browserType) {
 
                 case "chrome"   :
+                default         :
                     WebDriverManager.chromedriver().setup();
                     driver = new ChromeDriver();
                     driver.manage().window().maximize();
@@ -53,14 +54,6 @@ public class Driver {
                     driver.manage().window().maximize();
                     driver.manage().timeouts().implicitlyWait(11, TimeUnit.SECONDS);
                     break;
-
-                default:
-                    WebDriverManager.chromedriver().setup();
-                    driver = new ChromeDriver();
-                    driver.manage().window().maximize();
-                    driver.manage().timeouts().implicitlyWait(11, TimeUnit.SECONDS);
-                    break;
-
 
             }
         }

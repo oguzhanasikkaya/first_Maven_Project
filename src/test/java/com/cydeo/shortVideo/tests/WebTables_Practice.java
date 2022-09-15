@@ -1,6 +1,6 @@
 package com.cydeo.shortVideo.tests;
 
-import com.cydeo.base.TestBase;
+import com.cydeo.tests.base.TestBase;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;

@@ -1,6 +1,6 @@
 package com.cydeo.shortVideo.tests;
 
-import com.cydeo.base.TestBase;
+import com.cydeo.tests.base.TestBase;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
