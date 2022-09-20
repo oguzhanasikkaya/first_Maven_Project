@@ -5,14 +5,18 @@ import com.cydeo.utilities.BrowserUtils;
 import com.cydeo.utilities.Driver;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class LibraryLogin_POM_Practices {
 
     LibraryLoginPage libraryLoginPage = new LibraryLoginPage();
+    @BeforeMethod
+    public void setupMethod(){
+        Driver.getDriver().get("https://library1.cydeo.com/");
+    }
     @AfterTest
     public void tearDown(){
-        BrowserUtils.sleep(1);
         Driver.closeDriver();
     }
 
@@ -20,7 +24,7 @@ public class LibraryLogin_POM_Practices {
     public void required_field_error_message_test(){
     // 1- Open a chrome browser
     // 2- Go to: https://library1.cydeo.com
-        Driver.getDriver().get("https://library1.cydeo.com/");
+        //Driver.getDriver().get("https://library1.cydeo.com/"); we create beforeMethod
 
     // 3- Do not enter any information
     // 4- Click to “Sign in” button
@@ -38,7 +42,7 @@ public class LibraryLogin_POM_Practices {
 //        TC #2: Invalid email format error message test
 //        1- Open a chrome browser
 //        2- Go to: https://library1.cydeo.com
-        Driver.getDriver().get("https://library1.cydeo.com");
+        //Driver.getDriver().get("https://library1.cydeo.com");
 
 //        3- Enter invalid email format
 
@@ -58,7 +62,7 @@ public class LibraryLogin_POM_Practices {
 
 //        1- Open a chrome browser
 //        2- Go to: https://library1.cydeo.com
-        Driver.getDriver().get("https://library1.cydeo.com");
+        //Driver.getDriver().get("https://library1.cydeo.com");
 
 //        3- Enter incorrect username or incorrect password
         libraryLoginPage.inputUsername.sendKeys("wrong@email.com");
