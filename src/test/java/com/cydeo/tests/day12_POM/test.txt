@@ -1,0 +1,47 @@
+TC #1: Required field error message test
+1- Open a chrome browser
+2- Go to: https://library1.cydeo.com
+3- Do not enter any information
+4- Click to “Sign in” button
+5- Verify expected error is displayed:
+Expected: This field is required.
+
+
+TC #2: Invalid email format error message test
+1- Open a chrome browser
+2- Go to: https://library1.cydeo.com
+3- Enter invalid email format
+4- Verify expected error is displayed:
+Expected: Please enter a valid email address.
+
+NOTE: FOLLOW POM DESIGN PATTERN
+
+
+TC #3: Library negative login
+1- Open a chrome browser
+2- Go to: https://library1.cydeo.com
+3- Enter incorrect username or incorrect password
+4- Verify title expected error is displayed:
+Expected: Sorry, Wrong Email or Password
+
+NOTE: FOLLOW POM DESIGN PATTERN
+
+
+TC#4 : Dynamically Loaded Page Elements 7
+1. Go to https://practice.cydeo.com/dynamic_loading/7
+2. Wait until title is “Dynamic title”
+3. Assert: Message “Done” is displayed.
+4. Assert: Image is displayed.
+Note: Follow POM
+
+
+TC#5 : Dynamically Loaded Page Elements 1
+1. Go to https://practice.cydeo.com/dynamic_loading/1
+2. Click to start
+3. Wait until loading bar disappears
+4. Assert username inputbox is displayed
+5. Enter username: tomsmith
+6. Enter password: incorrectpassword
+7. Click to Submit button
+8. Assert “Your password is invalid!” text is displayed.
+Note: Follow POM Design Pattern
