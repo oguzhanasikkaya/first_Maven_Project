@@ -21,7 +21,7 @@ public class T2_ExplicitWaitPractice {
     }
 
     @Test
-    public void test(){
+    public void wait_and_assert_test(){
 //        3- Click to “Remove” button
         dynamicControlsPage.removeButton.click();
        /* Driver.getDriver().manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
@@ -36,7 +36,6 @@ public class T2_ExplicitWaitPractice {
         try{
             Assert.assertFalse(dynamicControlsPage.checkbox.isDisplayed());
             //  Assert.assertTrue(!dynamicControlsPage.checkBox.isDisplayed());
-
         }catch (NoSuchElementException n){
             Assert.assertTrue(true);
         }
@@ -45,6 +44,28 @@ public class T2_ExplicitWaitPractice {
 
         Assert.assertTrue(dynamicControlsPage.message.isDisplayed());
         Assert.assertTrue(dynamicControlsPage.message.getText().equals("It's gone!"));
+    }
+
+
+    @Test
+    public void enable_button_test(){
+
+//        3- Click to “Enable” button
+//        System.out.println("dynamicControlsPage.enableButton.isEnabled() = " + dynamicControlsPage.enableButton.isEnabled());
+        dynamicControlsPage.enableButton.click();
+        BrowserUtils.waitForInvisibilityOf(dynamicControlsPage.loadingBar);
+        System.out.println("dynamicControlsPage.inputBox.isEnabled() = " + dynamicControlsPage.inputBox.isEnabled());
+
+//        4- Wait until “loading bar disappears”
+//        BrowserUtils.waitAndAssertDisappearing();
+//        5- Verify:
+//        a. Input box is enabled.
+        Assert.assertTrue(dynamicControlsPage.inputBox.isEnabled());
+//        b. “It’s enabled!” message is displayed.
+        Assert.assertTrue(dynamicControlsPage.message.isDisplayed());
+        //check the string value is matching as expected: "It's enabled!"
+        Assert.assertTrue(dynamicControlsPage.message.getText().equals("It's enabled!"));
+
     }
 
 }

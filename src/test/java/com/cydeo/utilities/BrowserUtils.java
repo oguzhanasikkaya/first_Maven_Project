@@ -1,5 +1,6 @@
 package com.cydeo.utilities;
 
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -64,6 +65,27 @@ public class BrowserUtils {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(),10);
 
         wait.until(ExpectedConditions.invisibilityOf(webElement));
+
+    }
+
+
+    /**
+     * where we use this method: A web element should disappear in the page.
+     * Browser wait until disappearing then,
+     * We should assert disappearing
+     */
+    public static void waitAndAssertDisappearing(WebElement webElement){
+
+        BrowserUtils.waitForInvisibilityOf(webElement);
+    /** Wait until webElement disappears
+    *  Verify: webElement is not displayed
+    */
+        try{
+            Assert.assertFalse(webElement.isDisplayed());
+            //  Assert.assertTrue(!dynamicControlsPage.checkBox.isDisplayed());
+        }catch (NoSuchElementException n){
+            Assert.assertTrue(true);
+        }
 
     }
 
