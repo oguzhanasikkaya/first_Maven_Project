@@ -1,0 +1,261 @@
+Give all Answer as if You are answering in the interview
+-What is Selenium?
+    > selenium is an open source project(library) to automate browsers
+
+-Why are we using selenium? what are the advantages of selenium?
+    >Open source (Free)
+    >Support multiple programming languages
+    >Support multiple OS(windows,Mac,Linux)
+    >Support multiple Browsers
+    >It has a major community support behind it
+
+--------------------------------------------------------------------------------------------------
+-What are some of the disadvantages of selenium?
+    >We can not automate desktop applications
+    >Require advance programming language experience/knowledge
+    >No costumer service
+    >There is no built-in report coming from Selenium library
+
+--------------------------------------------------------------------------------------------------
+-What is a Web Elment
+    >Everything we see on a web page from links, to images, to input boxes, to chexkboxes all of them
+    are web elements.
+--------------------------------------------------------------------------------------------------
+-What is the difference between getText() and getAttribute() methods?
+    >.getText():
+        > It doesn't accept any arguments
+        > ıt will return the text of the provided WebElement as a String
+        >Return type: String
+    - Where does the .getText() method, gets the text from?
+        >.getText() method can only read in between the <openingTah> and </closingTag>
+
+    >.getAttribute("attributeName"):
+        >It accept a String argument as an "attributeName".
+        >It will find the matching "attributeName" and return its value as a String
+    - Where does the .getAttribute() method, gets the text from?
+        >Gets the text from the opening tag.
+--------------------------------------------------------------------------------------------------
+-What are the Locators?
+    >Locators are methods coming from Selenium library that help us locate WebElements
+    >There are 8 locators
+    1>id
+    2>name
+    3>linkText
+    4>partialLinkText
+    5>cssSelector
+    6>xpath
+    7>tagName
+    8>className
+-------------------------------------------------------------------------
+-What is your locator approach? How do you decide which locator to use?
+    >1 If there is id, I make sure it is not dynamic and I use it.
+    >2 If there is class, I can check if it is unique or not by using "." from cssSelector
+    >3 If the web element is a LINK, I use "linkText" locator
+    >4 If none of the above is applicable, I am comfortable creating custom locators using XPATH.
+--------------------------------------------------------------------------------------------------
+- How many types of XPATH are there?
+    >1 Absolute xpath
+        >start with "/"  This locator is not stable
+    >2 Relative xpath
+        >start with "//"  means jump to the web element provided
+        >Relative xpath is more reliable because we are being very specific compared to "absolute xpath"
+           //input[@id='something']
+
+    - commonly use xpath locators:
+    //tagName[@attribute='value']
+    //tagName[.='text']   =   //tagName[text()='text']
+    /following-sibling::
+    /preceding-sibling::
+
+--------------------------------------------------------------------------------------------------
+-How many handle Dynamic Web Element?
+    >We can use xpath locator methods such as : contains, starts-with, and ends-with to locate web
+    elements that has dynamic attribute value.
+    >We can also locate a static(not-changing/unique) parent or child and move from there to desired
+    //tagName[contains(@attribute='value')]
+    //tagName[starts-with(@attribute='value')]
+    //tagName[end-with(@attribute='value')]
+--------------------------------------------------------------------------------------------------
+-How do we go from child to parent using XPATH?
+    >"/.." will take our locator from child to parent
+-How do we go from parent to child using XPATH?
+    >"/" will take our locator from parent to child
+--------------------------------------------------------------------------------------------------
+-What is Maven?
+    >Maven is a "build automation tool"
+-What is "build"?
+    >Repeating steps when we are creating and managing our maven project, such as: creating the folder
+    structure, adding, compiling our code, testing, deploying
+-What is the most important file in a Maven project?
+    >pom.xml file
+-What is pom.xml file and why do you use it?
+    >pom = Project object model
+    >xml = extensible mark up language
+-Why do we use it?
+    >We manage (add, remove, and change dependencies and plugins etc.)
+-Where does maven store all dependencies?
+    >.m2
+    >by default it is hidden folder.
+    > if you are in a situation where your maven project is not working after adding removing changing
+    version of a dependency, and your tried to re load project, you can go into .m2 folder, and delete
+    everything and reload project
+--------------------------------------------------------------------------------------------------
+-What are the differences in between findElement() and findElements() method
+    >findElement() method:
+    >Return type: WebElement type
+    >It returns a single WebElement
+    -What happens if it cannot find a WebElement?
+        >NoSuchElementException will be thrown.
+    ------difference------------
+    >findElements() method:
+    >Return type: List<WebElement>
+    >It returns multiple WebElement in a list of WebElement
+    -What happens if it cannot find a WebElement?
+            >It will not throw exception
+            >It will return empty list
+--------------------------------------------------------------------------------------------------
+-How do we handle checkboxes and radio buttons?
+    >First we locate, then we can click.
+-How do we verify if checkbox is selected or not?
+    >isSelected()  method:
+        > if checkbox/radiobutton is selected, this method will return "true"
+        > if checkbox/radiobutton is NOT selected, this method will return "false"
+    isEnable() method:
+         > if web element is enabled, this method will return "true"
+         > if web element is NOT enabled, this method will return "false"
+--------------------------------------------------------------------------------------------------
+-What is TestNG?
+    >UNIT testing FrameWork.
+    >Originally it was created by a developers for developers.
+    >As testers we are using some of the annotations and methods to create certain structure for
+    our test.
+-Why do we use annotations?
+    >Annotations allows us to change the behaviors of regular java methods and allows us to create
+    certain executable flow.
+--------------------------------------------------------------------------------------------------
+-How do we handle DropDowns?
+-How many types of dropdowns do we have?
+    >1 Non-select dropdowns(HTML)
+        >Just locate with any locator and click
+    >2 Select dropdowns
+        >If a dropdown is created using <select> tag, we can use SELECT class object and methods
+        coming from it.
+        >Syntax:
+            Select select = new Select(dropdown_as_WebElement);
+        -How do we get currently selected option using select object?
+            >select.getFirsSelectedOption
+        -How many options do we have for selecting <options> from a dropdown?
+            >1 selectByIndex(int)-> accept index as int, and indexes start from 0
+            >2 selectByValue(String)->accept the value of attribute "value"
+            >3 selectByVisibleText(String)-> accept the text of the option as a String as it is displayed
+        What is the return type?
+            > WebElement
+        How do we get all of the options?
+            >Return type: List<WebElement>
+--------------------------------------------------------------------------------------------------
+-How many types of ALERTS we have?
+-How do we handle alerts?
+    >1 Non-JavaScript(HTML) Alerts:
+        >If it is not blocking the page, If you are able to right-click and inspect, it is an HTML Alert.
+        >We inspect, locate and click just as any other WebElement.
+    >2 JavaScript Alerts
+        -How many types we have?
+            >1  Information Alert:
+                >User can only .accept()
+            >2  Confirmation Alert:
+                >.accept()
+                >.decline()
+            >3  Prompt
+                >.accept()
+                >.decline()
+                >.sendKeys()
+        -How do you handle JS Alert?
+            >Handle JS Alert using Alert from Selenium
+            >Alert alert = driver.switchTo().alert();
+                >alert.accept();
+                >alert.dismiss();
+                >alert.sendKeys("I can send keys here");
+
+--------------------------------------------------------------------------------------------------
+-What is iframe?
+    >HTML inside another HTML.
+-How do we handle it?
+    >We need to locate the iframe and switch to it.
+-Why do we handle  we have to handle it?
+    >Because selenium can focus one thing at a time
+    >By default it will be looking in the main <html> code.
+    >If there is any inner <html> we have to explicitly switch to ve able to do any action in it.
+    >Otherwise Selenium will not be able to see any web element from the inner html <iframe>
+-How many ways do we have to switch to an iframe
+    >1  index:      indexes start from 0.
+        >   driver.switchTo().frame(int index)
+    >2  id,name:    If there is id or name attribute we  can use to locate and switch to iframe.
+        >   driver.switchTo().frame(String id/name)
+    >3  WebElement: We can locate the iframe as a web element and switch to it.
+        >   driver.switchTo().frame(WebElement);
+-After switching to inner frame, How do we go back to parent frame?
+    >1  parentFrame()     ->this will switch back to direct parent
+    >2  defaultContent()  ->this will switch back to the default <html> of page
+--------------------------------------------------------------------------------------------------
+-What is the difference between a window and a tab for selenium?
+    >Both are same for selenium
+    >Both TABS and WINDOWS will be treated as WINDOWS.
+-How do we handle WINDOWS?
+    >we use window handles to handle window.
+    >Randomly generated alphanumeric unique id for each window or tab
+    driver.switchTo().window(windowHandle);
+--------------------------------------------------------------------------------------------------
+CONFIGURATION_READER
+
+DRIVER
+
+ACTIONS
+
+JSEXECUTOR
+
+POM DESIGN PATTERN
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

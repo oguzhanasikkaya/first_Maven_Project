@@ -19,7 +19,6 @@ public class T2_ExplicitWaitPractice {
         Driver.getDriver().get("https://practice.cydeo.com/dynamic_controls");
         dynamicControlsPage = new DynamicControlsPage();
     }
-
     @Test
     public void wait_and_assert_test(){
 //        3- Click to “Remove” button
@@ -45,8 +44,6 @@ public class T2_ExplicitWaitPractice {
         Assert.assertTrue(dynamicControlsPage.message.isDisplayed());
         Assert.assertTrue(dynamicControlsPage.message.getText().equals("It's gone!"));
     }
-
-
     @Test
     public void enable_button_test(){
 
@@ -67,5 +64,4 @@ public class T2_ExplicitWaitPractice {
         Assert.assertTrue(dynamicControlsPage.message.getText().equals("It's enabled!"));
 
     }
-
 }
