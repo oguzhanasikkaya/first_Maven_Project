@@ -1,8 +1,12 @@
 package com.cydeo.utilities;
 
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
 
 public class BrowserUtils {
 
@@ -47,6 +51,20 @@ public class BrowserUtils {
      */
     public static void verifyTitle(String expectedTitle){
         Assert.assertEquals(Driver.getDriver().getTitle(),expectedTitle);
+    }
+
+
+    /**
+     * Create a utility method for ExpilicitWait so we don't have to repeat the lines
+     */
+    public static void waitForInvisibilityOf(WebElement webElement){
+
+        Driver.getDriver().manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
+
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(),10);
+
+        wait.until(ExpectedConditions.invisibilityOf(webElement));
+
     }
 
 
