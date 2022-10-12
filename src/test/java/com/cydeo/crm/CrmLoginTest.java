@@ -36,6 +36,9 @@ public class CrmLoginTest {
 
         Assert.assertEquals(loginPage.errorMsg,Driver.getDriver().findElement(By.xpath("//div[@class='errortext']")));
 
+        Driver.getDriver().close();
+
+
     }
 
 
